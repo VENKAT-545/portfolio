@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venkatajalapathi S - Portfolio</title>
+    <style>
+        /* Base Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+    
+        /* Animated Gradient Header */
+        header {
+            background: linear-gradient(-45deg, #130aac, #1a237e, #2c23cc, #1a237e);
+            background-size: 400% 400%;
+            color: #fff;
+            padding: 3em 1em;
+            text-align: center;
+            position: relative;
+            animation: gradientBG 6s ease-in-out infinite;
+        }
+    
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+    
+        /* Profile Image Animation */
+        .profile-img {
+            width: 150px;
+            height: 199px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            margin: 0 auto 20px;
+            display: block;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+            animation: float 3s ease-in-out infinite;
+        }
+    
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+    
+        .profile-img:hover {
+            transform: scale(1.2);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+        }
+    
+        /* Section Entrances */
+        section {
+            padding: 30px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            border-radius: 10px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+    
+        section.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    
+        /* Card Hover Effects */
+        .card {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+            position: relative;
+            overflow: hidden;
+        }
+    
+        .card:hover {
+            transform: translateY(-15px) rotate(1deg);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+    
+        .card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #130aac, #aa1717);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.6s ease;
+        }
+    
+        .card:hover::after {
+            transform: scaleX(1);
+        }
+    
+        /* Button Animations */
+        .btn {
+            display: inline-block;
+            background: #130aac;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            margin: 10px 5px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            border: none;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(19, 10, 172, 0.3);
+        }
+    
+        .btn:hover {
+            background: #aa1717;
+            text-decoration: none;
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 7px 14px rgba(170, 23, 23, 0.4);
+        }
+    
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.6s;
+        }
+    
+        .btn:hover::before {
+            left: 100%;
+        }
+    
+        /* Social Links Animation */
+        .social-links a {
+            color: white;
+            font-size: 1.8em;
+            transition: all 0.4s ease;
+            display: inline-block;
+        }
+    
+        .social-links a:hover {
+           
+            transform: translateY(-15px) scale(1.9);
+            color: #ffcc00;
+            text-shadow: 0 0 10px rgba(255, 204, 0, 0.8);
+        }
+    
+        /* Floating Elements */
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+    
+        .floating {
+            animation: floating 4s ease-in-out infinite;
+        }
+    
+        /* Pulse Animation */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+    
+        .pulse {
+            animation: pulse 2.5s infinite;
+        }
+    
+        /* Glow Effect */
+        .glow {
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
+        }
+    
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            header {
+                padding: 2em 1em;
+            }
+    
+            .profile-img {
+                width: 120px;
+                height: 120px;
+            }
+    
+            section {
+                padding: 20px 15px;
+                margin-bottom: 20px;
+            }
+        }
+    </style>    
+</head>
+<body>
+
+    <header>
+        <img src="My photo .png" alt="Venkatajalapathi S" class="profile-img">
+        <h1>Venkatajalapathi S</h1>
+        <h3>B.E Computer Science and Engineering</h3>
+        <p>Aspiring Developer | Data Science Enthusiast | UI UX Designer </p>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/venkatajalapathi-s-3497632aa" target="_blank">LinkedIn </a>
+            <a href="https://github.com/UnfavVenkat/unfav_venkat.git" target="_blank"> GitHub </a>
+            <a href="mailto:venkatajalapathi03@gmail.com"> Email</a>
+        </div>
+    </header>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Hello! I am currently pursuing my Bachelor's degree in Computer Science and Engineering. 
+            I have a strong passion for technology, problem-solving, and innovation. My goal is to 
+            leverage my skills in development and data science to create impactful solutions.</p>
+    </section>
+
+    <section id="education">
+        <h2>Education</h2>
+        <div class="grid-container">
+            <div class="card">
+                <h3>Bachelor of Engineering in Computer Science</h3>
+                <p><strong>R P SARATHY INSTITUTE OF TECHNOLOGY,SALEM</strong></p>
+                <p>2023 - 2027</p>
+                <p>CGPA: 8.44/10.00</p>
+            </div>
+            <div class="card">
+                <h3>Higher Secondary Education</h3>
+                <p><strong>GOVT HIGHER SECONDARY SCHOOL,KRP DAM-KRISHNAGIRI</strong></p>
+                <p>2021 - 2023</p>
+                <p>Percentage: 75.8%</p>
+            </div>
+            <div class="card">
+                <h3>Secondary School Education</h3>
+                <p><strong>GOVT HIGHER SECONDARY SCHOOL,KRP DAM-KRISHNAGIRI</strong></p>
+                <p>2020 - 2021</p>
+                <p>Percentage: PASS</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills-interests">
+        <h2>Skills & Interests</h2>
+        <div class="grid-container">
+            <div class="card">
+                <h3>Technical Skills</h3>
+                <ul>
+                    <li>Programming: Python, C, Java </li>
+                    <li>Web Development: HTML, CSS, JavaScript</li>
+                    <li>Data Science: Pandas, NumPy, Matplotlib, sklearn </li>
+                    <li>Database: SQL </li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Interests</h3>
+                <ul>
+                    <li>Developer Roles</li>
+                    <li>Data Science</li>
+                    <li>Web Development</li>
+                    <li>AI & Machine Learning</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Hobbies</h3>
+                <ul>
+                    <li>Listening to Music</li>
+                    <li>Playing Cricket</li>
+                    <li>Reading Tech Blogs</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="grid-container">
+            <div class="card">
+                <h3>My Portfolio</h3>
+                <p>👋 Hi, I'm Venkatajalapathi S.
+                    A passionate Developer with a love for turning ideas into functional, elegant solutions. I specialize in [ HTML,CSS ,JavaScript,C,PYTHON ] and thrive on solving complex problems through clean, efficient code. Whether building scalable applications or optimizing performance, I'm driven by the endless possibilities of technology.
+                </p>
+                <a href="" class="btn">View Project</a>
+            </div>
+            <div class="card">
+                <h3>Mini Calculator </h3>
+                <p>A lightweight, no-JavaScript calculator demonstrating modern CSS techniques and semantic HTML structure.</p>
+                <a href="https://venkat-545.github.io/calculator/" class="btn">View Project</a>
+            </div>
+            <div class="card">
+                <h3>Image View Gallery</h3>
+                <p>A lightweight, mobile-friendly photo gallery built with pure HTML and CSS.</p>
+                <a href="https://venkat-545.github.io/ImageViewGalary/" class="btn">View Project</a>
+            </div>
+            <div class="card">
+                <h3>Mini Music player</h3>
+                <p>A lightweight, responsive audio player built with HTML, CSS, and JavaScript for seamless music playback.</p>
+                <a href=" https://venkat-545.github.io/musicplayer/" class="btn">View Project</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications">
+        <h2>Certifications & Awards</h2>
+        <div class="grid-container">
+            <div class="card">
+                <h3>ISTE Hackathon</h3>
+                <p>ISTE -ADHIYAMAN COLLEGE OF ENGINEERING-HOSUR</p>
+                <p>2025</p>
+                <a href="Venkatajalapathi ISTE hackathon.jpg" class="btn">View certification</a>
+            </div>
+            <div class="card">
+                <h3>ISTE- PAPER PRESENTAION</h3>
+                <p>ISTE -ADHIYAMAN COLLEGE OF ENGINEERING-HOSUR</p>
+                <p>2025</p>
+                <a href="Venkatajalapathi ISTE paper presentation.jpg" class="btn">View certification</a>
+            </div>
+            <div class="card">
+                <h3>ISTE- QUIZ</h3>
+                <p>ISTE -ADHIYAMAN COLLEGE OF ENGINEERING-HOSUR</p>
+                <p>2025</p>
+                <a href="Venkatajalapathi ISTE quiz .jpg" class="btn">View certification</a>
+            </div>
+            <div class="card">
+                <h3>ISTE BEST STUDENT AWARD 2024</h3>
+                <p>ISTE -ADHIYAMAN COLLEGE OF ENGINEERING-HOSUR</p>
+                <p>2025</p>
+                <a href="#" class="btn">View Award </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="resume">
+        <h2>Resume</h2>
+        <div class="download-resume">
+            <p>Download my complete resume to learn more about my qualifications and experience.</p>
+            <a href="VENKATAJALAPATHI S(resume).pdf" download class="btn">Download Resume (PDF)</a>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <p>Feel free to reach out for collaborations or just to say hello!</p>
+        
+        <div class="grid-container">
+            <section>
+                <div class="View">
+                <h3>Contact Information</h3>
+                <p>Email: venkatajalapathi03@gmail.com</p>
+                <p>LinkedIn: <a href="https://www.linkedin.com/in/venkatajalapathi-s-3497632aa" target="_blank">Venkatajalapathi S</a></p>
+                <p>GitHub: <a href="https://github.com/UnfavVenkat/unfav_venkat.git" target="_blank">Venkat GitHub</a></p>
+                </div>
+            </section>
+
+            <h4>Location</h4>
+            <p>Tamil Nadu, India</p>                       
+            <div class="card">
+                <form class="contact-form" action="" method="POST" onsubmit="showNotification(event)">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+                <div id="notification" style="display: none; margin-top: 10px; color: green;">
+                    Your message has been sent successfully!
+                </div>
+            </div>
+        </section>
+
+    <footer>
+        <p>&copy; 2025 Venkatajalapathi S | All Rights Reserved</p>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/venkatajalapathi-s-3497632aa/" target="_blank">LinkedIn</a>
+            <a href="https://github.com/VENKAT-545" target="_blank">GitHub</a>
+            <a href="venkatajalapathi03@gmail.com">Email</a>
+        </div>
+    </footer>
+
+    <script>
+        // Intersection Observer for section animations
+        const sections = document.querySelectorAll('section');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        // Form submission handler
+        function showNotification(event) {
+            event.preventDefault();
+            const notification = document.getElementById('notification');
+            notification.style.display = 'block';
+            
+            // Reset form
+            event.target.reset();
+            
+            // Hide notification after 3 seconds
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
