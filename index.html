@@ -873,18 +873,23 @@
           </div>
         </div>
 
-        <form class="contact-form" id="contact-form" onsubmit="handleFormSubmit(event)">
+        <form action="https://formsubmit.co/venkatajalapathi03@gmail.com" method="POST" class="contact-form" id="contact-form">
+          <!-- FormSubmit Configuration -->
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_next" value="https://venkat-545.github.io/portfolio/">
+
           <div class="form-group">
-            <input type="text" placeholder="Your Name" required>
+            <input type="text" name="name" placeholder="Your Name" required>
           </div>
           <div class="form-group">
-            <input type="email" placeholder="Your Email Address" required>
+            <input type="email" name="email" placeholder="Your Email Address" required>
           </div>
           <div class="form-group">
-            <input type="text" placeholder="Subject" required>
+            <input type="text" name="_subject" placeholder="Subject" required>
           </div>
           <div class="form-group">
-            <textarea rows="4" placeholder="Your Message" required></textarea>
+            <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
           </div>
           <button type="submit" class="btn-primary" style="width: 100%; justify-content: center;">
             Send Message <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
